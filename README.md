@@ -1,24 +1,50 @@
-# AEGIS-Node-AI-Smart-City
-AI-powered acoustic emergency response system for smart streetlights using ESP32 and Edge AI
-1. The Mission
-ResqNode is a privacy-first, zero-latency acoustic sensing unit designed to turn standard city streetlights into an intelligent emergency response network. By leveraging Edge AI, our system identifies the specific acoustic signatures of car crashes and emergency sirens, reducing critical response times during the "Golden Hour" when every second counts.
+Aegis Node – Safety Alert System
+Aegis Node is an ESP32-based safety alert system designed to visually and audibly indicate emergency states such as crash alerts and siren alerts using a NeoPixel LED ring, buzzer, and push buttons.
+This project is simulated using Wokwi Online Simulator.
 
-2. Hardware Architecture & Setup
-Our prototype is built on the ESP32 platform, optimized for low-power edge processing.
+project link: https://wokwi.com/projects/451762073397044225
 
-Microcontroller: ESP32 DevKit V1.
+🚀 Features
+🔴 Crash Mode: Red LED ring with buzzer alert
+🔵 Siren Mode: Blue LED ring (silent)
+🟢 Normal Mode: Green LED ring
+🧠 Button-controlled logic using internal pull-up resistors
+🔊 Audible alerts using a buzzer
+🖥️ Serial monitor logs for debugging and status updates
+🧰 Components Used
+ESP32
+NeoPixel LED Ring (16 LEDs)
+Buzzer
+2 Push Buttons (Crash & Siren)
+Wokwi Online Simulator
+🔌 Pin Configuration
+Component	ESP32 Pin
+NeoPixel Ring	GPIO 15
+Buzzer	GPIO 2
+Crash Button	GPIO 12
+Siren Button	GPIO 14
+⚙️ Working Logic
+Crash Button Pressed
 
-Visual Alert: 16-LED WS2812B NeoPixel Ring connected to GPIO 15.
+LED Ring turns Red
+Buzzer sounds
+Serial message: ALERT: CRASH DETECTED
+Siren Button Pressed
 
-Auditory Alert: Piezo Buzzer connected to GPIO 2.
+LED Ring turns Blue
+Buzzer OFF
+Serial message: ALERT: SIREN DETECTED
+No Button Pressed
 
-Processing: Local inference ensures 0ms network latency and 100% citizen privacy by never transmitting raw audio to the cloud.
-
-3. AI Intelligence & Performance
-The "brain" of the AEGIS Node is a 1D-Convolutional Neural Network trained using Edge Impulse.
-
-Accuracy: The model achieved a 91.9% accuracy rate in identifying urban emergency sounds.
-
-Classes: The system is trained to distinguish between "Car Crash," "Siren," and "Ambient Traffic Noise".
-
-Edge Optimization: The model is compressed to run efficiently on the ESP32’s limited memory footprint.
+LED Ring turns Green
+System stays in normal mode
+▶️ How to Run the Simulation
+Open https://wokwi.com
+Create a new ESP32 project
+Upload:
+sketch.ino
+diagram.json
+Click Run
+Use the buttons to trigger different alert modes
+🧪 Simulation Platform
+Wokwi – Online ESP32 & Arduino Simulator
